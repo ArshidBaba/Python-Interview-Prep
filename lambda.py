@@ -1,22 +1,52 @@
-def int_multiply(x):
-    return lambda c: c * x
+# Add
+add = lambda x, y: x+ y
+result = add(5, 3)
 
+print("Add: ", result)
 
-int_double = int_multiply(2)
+# The above is equivalent to the following
 
-print(int_double(100))
+def add(x, y):
+    return x + y
 
+#Lambda with no arguments
+greet = lambda: "Hello World!"
+print(greet())
 
-nums = [1, 2, 3, 4, 5, 6]
+# Lambda with default arguments
+multiply = lambda x, y=2: x * y
+print("Multiply: ", multiply(5))
+print("Multiply: ", multiply(5, 3))
 
-incremented_nums = list(filter(lambda num: num % 2 != 0, nums))
+#Using Lambda in Higher-Order Functions
+# map()
+numbers = [1,2,3,4]
+squared = list(map(lambda x: x ** 2, numbers))
+print("Squared: ", squared)
 
-print(incremented_nums)
+# filter()
+numbers = [1,2,3,4,5,6]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print("Evens: ", evens)
 
+# sorted()
+people = [('Alice', 30), ('Bob', 25), ('Charlie', 35)]
+sorted_by_age = sorted(people, key=lambda person: person[1])
+print("Sorted by Age: ", sorted_by_age)
 
-names = ["Adam", "Kevin", "Joe"]
-nums = [1, 2, 1]
+# reduce()
+from functools import reduce
+numbers = [1,2,3,4]
+product = reduce(lambda x, y: x * y, numbers)
+print("Product: ", product)
 
-mapped_names = list(map(lambda name, num: name.upper() * num, names, nums))
+# Lambda with conditional expression (Ternary)
+max_value = lambda x, y: x if x > y else y
+print("Max value: ", max_value(10, 20))
 
-print(mapped_names)
+# Lambda as a closure
+def make_multiplier(n):
+    return lambda x: x * n
+
+doubler = make_multiplier(2)
+print("Doubler: ", doubler(5))
