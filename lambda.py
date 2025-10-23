@@ -50,3 +50,15 @@ def make_multiplier(n):
 
 doubler = make_multiplier(2)
 print("Doubler: ", doubler(5))
+
+# Higher order functions
+# HOFs are a fundamental concept in functional programming and Python supports them natively. An HOF is one tat does at least one of the following:
+    #Takes one or more functions as arguments
+    #Returns a function as its result
+
+# Key Benefits
+    # Readability
+    # Composibility
+    # Performance
+    # Functional Style
+
