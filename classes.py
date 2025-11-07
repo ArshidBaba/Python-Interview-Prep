@@ -14,3 +14,22 @@ Person = type(
 p = Person("Arshid")
 p.say_hello()
 print(p.species)
+
+class_code = """
+class Animal:
+    def __init__(self, species):
+        self.species = species
+        
+    def speak(self):
+        print(f"I am a {self.species}")
+"""
+
+# Execute in a local dictionary to capture the class
+namespace = {}
+exec(class_code, globals(), namespace)
+
+# Retrieve the created class
+Animal = namespace['Animal']
+
+a = Animal("Cat")
+a.speak()
